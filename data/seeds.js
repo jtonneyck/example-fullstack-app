@@ -1,5 +1,4 @@
 const Movie = require("../models/Movie");
-const Director = require("../models/Director");
 const movies = require("./movies.json");
 const directors = require("./directors.json");
 

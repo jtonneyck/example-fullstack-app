@@ -1,0 +1,29 @@
+.form-container {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: center;
+    height: 80vh;
+}
+
+.form-container * {
+    box-sizing: border-box;
+}
+
+.form-container input {
+    margin: 5px;
+    width: 60vw;
+    height: 50px;
+    padding: 5px;
+    font-size: 16px;
+    display: flex;
+}
+
+.form-container button {
+    margin: 5px;
+    width: 60vw;
+    border-radius: 0;
+    height: 50px;
+}

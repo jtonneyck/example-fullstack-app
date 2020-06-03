@@ -1,7 +1,7 @@
-<form action="/movies/update" method="POST">
+<form class="form-container" action="/movies/update" method="POST">
     <input type="text" value="{{movie.title}}" name="title">
     <input type="text" value="{{movie.director}}" name="director">
     <input type="text" value="{{movie.duration}}" name="duration">
-    <input type="text" hidden value="{{movie.id}}" name="id">
+    <input type="hidden" value="{{movie.id}}" name="id">
     <button>Edit Movie</button>
 </form>

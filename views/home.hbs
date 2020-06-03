@@ -1,0 +1,11 @@
+{{!-- <div>
+    <a href="/students?name=elko&profession=coder">Elko's page</a>
+    <a href="/students?name=nienke&profession=coder">Nienkes page</a>
+    <a href="/students?name=amruta&profession=coder">Amrutas page</a>
+</div> --}}
+
+{{#each movies}}
+  <h1>{{title}}</h1>  
+  <a href="/movies/detail?id={{_id}}">Go to detail page</a>
+  <a href="/movies/update?id={{_id}}">Update moviee</a>
+{{/each}}

@@ -1,8 +1,22 @@
 <link rel="stylesheet" href="/stylesheets/partials/Navbar.css">
 <nav>
-    <a href="/">MOVIE LIST</a>
-    <a href="/movies/categories">MOVIE CATEGORIES</a>
-    <a href="/movies/multiple/categories">MULTIPLE CATEGORIES</a>
-    <a href="/movies/create">CREATE</a>
-
+    <div class="left">
+        <a href="/">MOVIE LIST</a>
+        <a href="/movies/categories">MOVIE CATEGORIES</a>
+        <a href="/movies/multiple/categories">MULTIPLE CATEGORIES</a>
+        <a href="/movies/search">SEARCH</a>
+        <a href="/movies/create">CREATE MOVIE</a>
+        <a href="/director/create">CREATE DIRECTOR</a>
+    </div>
+    <div class="right"></div>
+        <h1>{{user.username}}</h1>
+        {{#if loggedIn}}
+            <a href="#">Welcome {{user.username}}</a>
+            <a href="/users/logout">Logout</a>
+        {{else}}
+            <a href="/users/login">Login</a>
+            <a href="/users/signup">Signup</a>
+        {{/if}}
+    </div>
 </nav>
+<div class="nav spacer"></div>

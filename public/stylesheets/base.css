@@ -1,4 +1,7 @@
 @import url("/stylesheets/partials/form-container.css");
+@import url("/stylesheets/partials/MovieCard.css");
+@import url("/stylesheets/error.css");
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 html, body {
@@ -6,3 +9,16 @@ html, body {
     padding: 0;
 }
 
+html * {
+    font-family: "Roboto", sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image: url("/images/curtains.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% auto;
+}

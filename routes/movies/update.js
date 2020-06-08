@@ -1,22 +1,35 @@
 const express = require("express");
 const app = express();
 const Movie = require("../../models/Movie");
+const Director = require("../../models/Director");
 
-app.get("/movies/update", (req,res)=> {
-    
-    Movie.findById(req.query.id)
+app.get("/update", (req,res)=> {
+    Director.find()
+    .then((directors)=> {
+        Movie.findById(req.query.id)
+        .populate("director")
         .then((movie)=> {    
-            debugger
-            res.render("movies/update", {movie: movie});
+            directors = directors.map((director)=> {
+                return ({
+                    id: director.id,
+                    name: director.name,
+                    biography: directors.biography,
+                    isCurrent: director.id === movie.director.id
+                })
+            })
+            res.render("movies/update", {movie, directors});
         })
-        .catch(((err)=> {
-            console.log("ERROR", err);
-        }))
+    })
+    .catch(((err)=> {
+        console.log("ERROR", err);
+    }))
+
+
 })
 
-app.post("/movies/update", (req,res)=> {
+app.post("/update", (req,res)=> {
     
-    let movieId = req.body.id
+    let movieId = req.body.id;
     Movie.findByIdAndUpdate(movieId, {
             title: req.body.title,
             director: req.body.director,
@@ -28,5 +41,6 @@ app.post("/movies/update", (req,res)=> {
         .catch((err)=> {
             console.log("err", err);
         })
-})
+});
+
 module.exports = app;

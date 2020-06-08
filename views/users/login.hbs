@@ -1,0 +1,17 @@
+<div class="form-container">
+    <div class="title">
+        <h1>LOGIN</h1>
+    </div>
+    {{#if redirectUrl}}
+        <form action="/users/login?redirectUrl={{redirectUrl}}" method="POST">
+    {{else}}
+        <form action="/users/login" method="POST">
+    {{/if}}
+        <input type="text" placeholder="username" name="username">
+        <input type="password" placeholder="password" name="password">
+        {{#if error}}
+            <p class="error-message">{{message}}</p>
+        {{/if}}
+        <button>LOGIN</button>
+    </form>
+</div>

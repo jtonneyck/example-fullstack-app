@@ -1,0 +1,52 @@
+<div class="form-container">
+    <div class="title">
+        <h1>SEARCH!</h1>
+    </div>
+    <input id="search-npt" type="text">
+    <button id="search-btn">SEARCH</button>
+    <div class="container">
+
+    </div>
+</div>
+
+
+
+
+<script>
+    
+
+    let $searchButton = document.querySelector("#search-btn");
+    let $searchInput = document.querySelector("#search-npt");
+    let $movieContainer = document.querySelector(".container");
+    $searchButton.addEventListener("click", ()=> {
+       let query =  $searchInput.value;
+       axios.get(`/movies/search/${query}`)
+        .then((response)=> {
+            response.data.movies.forEach((movie)=> {
+                let $movieCard = createMovieCard(movie);
+                $movieContainer.appendChild($movieCard)
+            })
+        })
+        .catch((err)=> {
+
+        })
+    })
+
+    function createMovieCard(movie){
+        let $divContainer = document.createElement("div");
+        $divContainer.setAttribute("class", "movie-card");
+        $divContainer.innerHTML =
+        `    
+           <h1>${movie.title} by ${movie.director.name}</h1>
+            <div class="button-container">
+                <a href="/movies/detail?id=${movie._id}">
+                    <button>DETAILS</button>
+                </a>
+                <a href="/movies/update?id=${movie._id}">
+                    <button>UPDATE <span class="line"></span></button>
+                </a>
+            </div>  
+        `
+        return $divContainer;
+    }
+</script>

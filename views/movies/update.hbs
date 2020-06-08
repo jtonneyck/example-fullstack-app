@@ -1,6 +1,14 @@
 <form class="form-container" action="/movies/update" method="POST">
     <input type="text" value="{{movie.title}}" name="title">
-    <input type="text" value="{{movie.director}}" name="director">
+    <select class="form-control" name="director" type="text" multiple="{{directors.length}}">
+        {{#each directors}}
+            {{#if isCurrent}}
+                <option selected value="{{this.id}}">{{this.name}}</option>
+            {{else}}
+                <option value="{{this.id}}">{{this.name}}</option>
+            {{/if}}
+        {{/each}}
+    </select>
     <input type="text" value="{{movie.duration}}" name="duration">
     <input type="hidden" value="{{movie.id}}" name="id">
     <button>Edit Movie</button>

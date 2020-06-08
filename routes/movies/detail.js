@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const Movie = require("../../models/Movie");
 
-app.get("/movies/detail", (req, res)=> {
+app.get("/", (req, res)=> {
     let objectId = req.query.id
     Movie.findById(objectId)
         .then((movie)=> {

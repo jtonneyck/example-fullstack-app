@@ -1,0 +1,38 @@
+.movie-card {
+    position: relative;
+    width: 20%;
+    box-sizing: border-box;
+    height: 300px;
+    border: 1px grey solid;
+    padding: 20px;
+    margin: 2.5%;
+    background-color: white;
+}
+
+.movie-card:hover {
+    transform: scale(1.2);
+}
+
+.movie-card .button-container {
+    position: absolute;
+    bottom: 20px;
+}
+
+.movie-card a {
+    text-decoration: none;
+}
+
+
+.movie-card button {
+    background-color: black;
+    color: yellow;
+    height: 50px;
+    border: none;
+    padding: 20px;
+    text-decoration: none;
+}
+
+.movie-card a button:hover {
+    color: white;
+    font-weight: 900;
+}

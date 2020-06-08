@@ -1,7 +1,15 @@
-
-<form class="form-container" action="/movies/create" method="POST">
-    <input type="text" placeholder="title" name="title">
-    <input type="text" placeholder="director" name="director">
-    <input type="text" placeholder="duration" name="duration">
-    <button>CREATE MOVIE</button>
-</form>
+<div class="form-container">
+    <div class="title">
+        <h1>CREATE MOVIE</h1>
+    </div>
+    <form action="/movies/create" method="POST">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="duration" name="duration">
+        <select class="form-control" name="director" type="text" multiple="{{directors.length}}">
+            {{#each directors}}
+                <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <button>CREATE MOVIE</button>
+    </form>
+</div>

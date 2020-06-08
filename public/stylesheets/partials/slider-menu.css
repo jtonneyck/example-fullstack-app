@@ -1,0 +1,49 @@
+.slider-menu .container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+.slider-menu  .container> div:nth-child(2){
+    margin: 5px 0;
+}
+
+.slider-menu .line1, .slider-menu  .line2, .slider-menu  .line3{
+    height: 5px;
+    width: 30px;
+    background-color: #333;
+    transition: .5s ease-in-out;
+}
+
+.slider-menu  .menu {
+    width: 25vw;
+    position: fixed;
+    height: 100vh;
+    background-color: grey;
+}
+
+.slider-menu  .menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.slider-menu  .slide-in {
+    left: 0;
+    transition: left 2s;
+}
+
+.slider-menu  .slide-out {
+    left: -25vw;
+    transition: left 2s;
+}
+
+.slider-menu  .transition-hamburger .line1{
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+      transform: rotate(-45deg) translate(-9px, -8x);
+  }
+  
+.slider-menu  .transition-hamburger .line2 {opacity: 0;}
+
+.slider-menu  .transition-hamburger .line3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg)  translate(-8px, -5px);
+}

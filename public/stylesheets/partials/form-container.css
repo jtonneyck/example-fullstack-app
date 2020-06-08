@@ -1,10 +1,10 @@
 .form-container {
     display: flex;
     width: 100vw;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
-    align-items: center;
+    flex-direction: column;
+    align-items: center; 
+    flex-wrap: wrap; 
+    padding: 50px;
     height: 80vh;
 }
 
@@ -12,18 +12,33 @@
     box-sizing: border-box;
 }
 
-.form-container input {
-    margin: 5px;
-    width: 60vw;
+.form-container input, .form-container select  {
+    margin: 20px;
+    width: 40vw;
     height: 50px;
     padding: 5px;
     font-size: 16px;
     display: flex;
 }
 
+.form-container select {
+    height: 200px;
+}
+
 .form-container button {
-    margin: 5px;
-    width: 60vw;
+    margin: 20px;
+    width: 40vw;
     border-radius: 0;
     height: 50px;
+}
+
+.form-container .error-message {
+    color: red;
+    width: 40vw;
+    margin: 20px;
+    margin-bottom: 0;
+}
+
+.form-container .title {
+    width: 40vw;
 }

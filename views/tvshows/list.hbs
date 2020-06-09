@@ -1,0 +1,27 @@
+<div class="tv-shows">
+    <h1>TV SHOWS</h1>
+
+    <div class="container">
+        {{#each tvshows}}
+        <div class="tv-show-card">
+            <div class="title">
+                <h1>{{original_name}}</h1>
+            </div>
+            <img src="https://image.tmdb.org/t/p/w500/{{backdrop_path}}" alt="">
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+
+<style>
+    .tv-shows .container  {
+        background-image: none;
+    }
+    .tv-shows .tv-show-card {
+        width: 30%;
+        padding: 20px;
+        background-color: white;
+        margin: 10px;
+    }
+</style>

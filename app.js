@@ -37,7 +37,6 @@ mongoose.connect(process.env.db,{
     })
 
 function addSessionToHbs(req,res,next){
-    console.log("I am middleware too!");
     if(req.session.user) {
         res.locals.loggedIn = true;
         res.locals.user = req.session.user;    
@@ -49,36 +48,17 @@ function protectMiddleWare(req,res,next) {
     else res.redirect(`/users/login?redirectUrl=${req.originalUrl}`);
 }
 
-
-function middleware1(req,res,next) {
-    console.log("1 Middleware");
-    req.messageInABottle = "secret message"
-    next();
-}
-function middleware2(req,res,next) {
-    console.log(req.messageInABottle);
-    console.log("2 Middleware");
-    next();
-}
-function middleware3(req,res,next) {
-    console.log(req.messageInABottle);
-    console.log("3 Middleware");
-    next();
-}
-
-app.use("/chakalakawhoopwhoop", middleware1, middleware2, middleware3);
 app.use(addSessionToHbs)
-// app.use(protectMiddleWare);
-// app.use(protectMiddleWare);
-// app.use(protectMiddleWare);
-// app.use(protectMiddleWare);
-// app.use(protectMiddleWare);
-app.use("/",middleware1, middleware2,middleware3, require("./routes/director/create"));
-app.use("/movies/detail",middleware1,middleware1, protectMiddleWare, require("./routes/movies/detail"));
+
+app.use("/", require("./routes/director/create"));
+app.use("/movies/detail", protectMiddleWare, require("./routes/movies/detail"));
 app.use("/movies", require("./routes/movies/update"));
 app.use("/movies", require("./routes/movies/categories"));
 app.use("/movies/create", require("./routes/movies/create"));
 app.use("/movies/search", require("./routes/movies/search"));
+
+app.use("/tvshows", require("./routes/tvshows/list"));
+
 
 app.use("/", require("./routes/movies/delete"));
 app.use("/", require("./routes/movies/list"));
@@ -90,8 +70,6 @@ app.use("/", require("./routes/users/signup"));
 app.use("/", require("./routes/users/login"));
 
 app.use(function(err, req,res,next) {
-    console.log("errorrrrrr" ,err)
-    debugger
     res.render("error", {message: err.message, statusCode: err.status})
 })
 

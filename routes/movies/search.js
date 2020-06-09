@@ -8,7 +8,7 @@ app.get("/", (req,res)=>{
 
 app.get("/:title",(req,res)=>{
     //{ $regex: new RegExp(req.params.title)}
-    Movie.find({ title: req.params.title})
+    Movie.find({ title: { $regex: new RegExp(req.params.title)}})
         .populate("director")
         .then((movies)=> {
             res.json({movies});

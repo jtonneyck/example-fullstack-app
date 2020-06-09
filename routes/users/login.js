@@ -5,19 +5,20 @@ const bcrypt = require("bcrypt");
 var createError = require('http-errors')
 
 app.post("/users/login", (req,res, next)=> {
+    debugger
     User.findOne({
         username: req.body.username
     })
     .then((user)=> {
         if(!user) {
-            res.redirect("users/login");
+            res.redirect("/users/login?error=incorrect+credentials");
         } else {
             bcrypt.compare(req.body.password, user.password, function(err, match) {
                 if(err){
                     console.log("Error", err);
                 } else if(match) {
+                    debugger
                     req.session.user = user;
-                    req.session.lala = "hihihi";
                     if(req.query.redirectUrl) res.redirect(req.query.redirectUrl);
                     else res.redirect("/");
                     

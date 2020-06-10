@@ -4,7 +4,7 @@ const User = require("../../models/User");
 const bcrypt = require('bcrypt');
 var createError = require('http-errors')
 
-app.get("/users/username-available/:username", (req,res)=> {
+app.get("/username-available/:username", (req,res)=> {
     User.findOne({username: req.params.username})
         .then((user)=> {
             if(user){
@@ -15,7 +15,7 @@ app.get("/users/username-available/:username", (req,res)=> {
         })
 })
 
-app.post("/users/signup", (req,res)=> {
+app.post("/signup", (req,res)=> {
     User.findOne({username: req.body.username})
         .then((user)=> {
             if(user) {
@@ -46,7 +46,7 @@ app.post("/users/signup", (req,res)=> {
 
 })
 
-app.get("/users/signup", (req,res)=> {
+app.get("/signup", (req,res)=> {
     if(req.query.error) {
         res.render("users/signup", {
             error: true, 

@@ -1,0 +1,18 @@
+<div class="profile">
+    <div class="profile-info">
+        <div class="title">
+            <h1>{{user.username}}</h1>
+        </div>
+        <div class="img-container">
+            <img src="/uploads/{{user.profile_img}}" alt="">
+        </div>
+    </div>
+
+    <div class="form-container">
+        <form action="/users/profile/upload-profile-picture" enctype="multipart/form-data" method="POST">
+            <input type="file" name="picture">
+            <button>Upload picture</button>
+        </form>
+    </div>
+</div>
+

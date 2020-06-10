@@ -2,6 +2,7 @@ const Movie = require("../models/Movie");
 const Director = require("../models/Director");
 const movies = require("./movies.json");
 const directors = require("./directors.json");
+require('dotenv').config();
 
 function makeMoviePromiseArray(){
     let moviesWithKnownDirectors = [];
@@ -45,7 +46,7 @@ directors.forEach((director)=> {
 })
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/movies-reference",{ 
+mongoose.connect(process.env.db,{ 
     useUnifiedTopology: true,
     useNewUrlParser: true 
 })

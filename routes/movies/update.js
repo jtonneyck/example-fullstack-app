@@ -3,7 +3,7 @@ const app = express();
 const Movie = require("../../models/Movie");
 const Director = require("../../models/Director");
 
-app.get("/update", (req,res)=> {
+app.get("/", (req,res)=> {
     Director.find()
     .then((directors)=> {
         Movie.findById(req.query.id)
@@ -27,8 +27,7 @@ app.get("/update", (req,res)=> {
 
 })
 
-app.post("/update", (req,res)=> {
-    
+app.post("/", (req,res)=> {
     let movieId = req.body.id;
     Movie.findByIdAndUpdate(movieId, {
             title: req.body.title,

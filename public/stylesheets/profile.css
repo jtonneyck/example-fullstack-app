@@ -1,0 +1,22 @@
+.profile .profile-info {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.profile .profile-info .title {
+    width: 40vw;
+}
+.profile .profile-info .img-container {
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.profile .profile-info .img-container img {
+    max-width: 100%;
+}

@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 const Movie = require("../../models/Movie");
 
-app.get("/categories",(req,res)=> {
+app.get("/",(req,res)=> {
     res.render("movies/categories/links");
 })
 
-app.get("/:category/categories/:favouritePet",(req,res)=> {
+app.get("/:category/:favouritePet",(req,res)=> {
     console.log(req.params.category, req.params.favouritePet)
     Movie.find({
         genre: req.params.category
@@ -19,11 +19,11 @@ app.get("/:category/categories/:favouritePet",(req,res)=> {
     })
 })
 
-app.get("/multiple/categories", (req,res)=> {
+app.get("/multiple/", (req,res)=> {
     res.render("movies/categories/checkboxes");
 })
 ///multiple/categories/result
-app.get("/multiple/categories/result", (req,res)=> {
+app.get("/result", (req,res)=> {
     console.log(req.query.genre);
     Movie.find({
         genre: {$in: req.query.genre}
@@ -40,7 +40,7 @@ app.get("/multiple/categoriesPost", (req,res)=> {
     res.render("movies/categories/checkboxesPost");
 })
 
-app.post("/multiple/categories/result", (req,res)=> {
+app.post("/multiple/result", (req,res)=> {
     console.log(req.body.genre);
     Movie.find({
         genre: {$in: req.body.genre}

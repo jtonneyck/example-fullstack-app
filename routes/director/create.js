@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const Director = require("../../models/Director");
 
-app.post("/director/create", (req,res)=> {
+app.post("/create", (req,res)=> {
     let newDirector = req.body;
     Director.create(newDirector)
         .then((newDirector)=> {
@@ -13,8 +13,7 @@ app.post("/director/create", (req,res)=> {
         })
 })
 
-app.get("/director/create", (req,res)=> {
-    debugger
+app.get("/create", (req,res)=> {
     res.render("director/create");
 })
 

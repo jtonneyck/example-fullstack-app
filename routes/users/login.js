@@ -4,8 +4,7 @@ const User = require("../../models/User");
 const bcrypt = require("bcrypt");
 var createError = require('http-errors')
 
-app.post("/users/login", (req,res, next)=> {
-    debugger
+app.post("/login", (req,res, next)=> {
     User.findOne({
         username: req.body.username
     })
@@ -17,7 +16,6 @@ app.post("/users/login", (req,res, next)=> {
                 if(err){
                     console.log("Error", err);
                 } else if(match) {
-                    debugger
                     req.session.user = user;
                     if(req.query.redirectUrl) res.redirect(req.query.redirectUrl);
                     else res.redirect("/");
@@ -33,24 +31,7 @@ app.post("/users/login", (req,res, next)=> {
     })
 })
 
-// var object = {
-//     "asd;lfj23ESDFASDR1223SDAF": {
-//         user: {
-//             username: "Jurgen",
-//             password: "12345"
-//         },
-//         lala: "hihihi"
-//     },
-//     "asdfaslkfd123wsfasdf": {
-//         user: {
-//             username: "Nardiiii",
-//             password: "12345",
-//         },
-//         "lala": "hihihi"
-//     }
-// }
-
-app.get("/users/login", (req,res)=> {
+app.get("/login", (req,res)=> {
     if(req.query.error) {
         res.render("users/login", {
             message: req.query.error, 

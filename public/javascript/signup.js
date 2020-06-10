@@ -1,5 +1,6 @@
 let $errorMessage = document.querySelector(".error-message");
 let $usernameInput = document.querySelector("#username");
+
 $usernameInput.addEventListener("blur", (event)=> {
     let username = event.target.value;
     axios.get(`http://localhost:3000/users/username-available/${username}`)
@@ -11,6 +12,6 @@ $usernameInput.addEventListener("blur", (event)=> {
             }
         })
         .catch((error)=> {
-            debugger
+            // handle error on page
         })
 });

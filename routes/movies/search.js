@@ -6,9 +6,8 @@ app.get("/", (req,res)=>{
     res.render("movies/search");
 })
 
-app.get("/:title",(req,res)=>{
-    //{ $regex: new RegExp(req.params.title)}
-    Movie.find({ title: { $regex: new RegExp(req.params.title)}})
+app.get("/:searchTerm",(req,res)=>{
+    Movie.find({ $text: { $search: req.params.searchTerm}})
         .populate("director")
         .then((movies)=> {
             res.json({movies});

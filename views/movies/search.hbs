@@ -3,7 +3,7 @@
         <div class="title">
             <h1>SEARCH!</h1>
         </div>
-        <input id="search-npt" type="text">
+        <input id="search-npt" placeholder="searh by title or genre" type="text">
         <button id="search-btn">SEARCH</button>
 
     </div>
@@ -16,22 +16,27 @@
 
 
 <script>
-    
+
     let $searchButton = document.querySelector("#search-btn");
     let $searchInput = document.querySelector("#search-npt");
     let $movieContainer = document.querySelector(".container");
+
     $searchButton.addEventListener("click", ()=> {
        let query =  $searchInput.value;
        axios.get(`/movies/search/${query}`)
         .then((response)=> {
             $movieContainer.innerHTML = "";
-            response.data.movies.forEach((movie)=> {
-                let $movieCard = createMovieCard(movie);
-                $movieContainer.appendChild($movieCard)
-            })
-        })
-        .catch((err)=> {
 
+            if(response.data.movies.length === 0){ 
+                 $movieContainer.innerHTML = "<h1>No results...</h1>";
+            } else {
+                response.data.movies.forEach((movie)=> {
+                    $movieContainer.appendChild(createMovieCard(movie));
+                })
+            }
+        })
+        .catch((error)=> {
+            createError(error);
         })
     })
 

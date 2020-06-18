@@ -4,3 +4,7 @@
 .search .form-container {
     height: 40vh;
 }
+
+.search .container h1 {
+    color: white;
+}

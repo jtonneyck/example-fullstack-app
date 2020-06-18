@@ -1,5 +1,7 @@
 # EXAMPLE FULL STACK APP - (Node Express handlebars mongoDB mongoose)
 
+This code was produced during several live demos. It demonstrated how to build a full CRUD application with a login system, api usage (in the tv shows route) and rudimentary modular styling. You can find a live version<a href="https://movie-app-ironhack.herokuapp.com/"> here </a>. On the search route we also did an old school implementation of content that's loaded dynamically through axios and vanille dom manipulation. Next module we're going to use React for that!
+
 This project needs the following .env vars in order to run:
 
 .env

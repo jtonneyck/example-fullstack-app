@@ -1,10 +1,10 @@
 @import url("/stylesheets/partials/form-container.css");
 
-@import url("/stylesheets/partials/MovieCard.css");
+@import url("/stylesheets/partials/movie-card.css");
 @import url("/stylesheets/search.css");
 @import url("/stylesheets/profile.css");
-
 @import url("/stylesheets/error.css");
+@import url("/stylesheets/dynamic-error.css");
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 

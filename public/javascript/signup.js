@@ -3,7 +3,7 @@ let $usernameInput = document.querySelector("#username");
 
 $usernameInput.addEventListener("blur", (event)=> {
     let username = event.target.value;
-    axios.get(`http://localhost:3000/users/username-available/${username}`)
+    axios.get(`/users/username-available/${username}`)
         .then((response)=> {
             if(response.data.available) {
                 $errorMessage.style.display = "none";

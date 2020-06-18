@@ -13,19 +13,4 @@ api_key_movies=yourapikeyfrom:http://themoviedb.org
 ```
 You also need to seed the database. You can do that by executing `node data/seeds.js`. Afterwards run `npm install`, followed by `node app.js`.
 
-<style>
-    body{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;    
-        background-image: url("./public/images/curtains.jpg");
-        background-opacity: 0.8;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: 100% auto;
-        width: 100%;
-        font-weight: bold;
-        color:
-    }
-</style>
+<img src="./public/images/curtains.jpg"/>
